@@ -14,5 +14,6 @@
   // ----------------------------------------------------
 
 ARRAY TEXT:C222($arr_Names;0)
-FORM GET NAMES:C1167(Table:C252(iUserMode_CurrentTable)->;$arr_Names;$1)  // update for v14
+// don't forget the * if you want the tables forms of the host database (and you want it)
+FORM GET NAMES:C1167(Table:C252(iUserMode_CurrentTable)->;$arr_Names;$1;*)  // update for v14
 $0:=(Size of array:C274($arr_Names)>0)

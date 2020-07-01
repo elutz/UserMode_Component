@@ -2,7 +2,7 @@ C_TEXT:C284($name;$text1;$text2;$text3;$who;$t)
 C_LONGINT:C283($pos;$mylong)
 
 Case of 
-	: (Form event:C388=On Load:K2:1)
+	: (Form event code:C388=On Load:K2:1)
 		UserMode_Init   // should have been done already...
 		UserMode_Listbox_Init 
 		
@@ -16,12 +16,16 @@ Case of
 			End if 
 		End if 
 		
-	: (Form event:C388=On Close Box:K2:21)
+	: (Form event code:C388=On Close Box:K2:21)
 		CANCEL:C270
 		
-	: (Form event:C388=On Double Clicked:K2:5)
+	: (Form event code:C388=On Double Clicked:K2:5)
 		If (ar_UserMode_Modify{iUserMode_CurrentTable})
 			If (UserMode_IsFormExisting (ar_UserMode_Forms{iUserMode_CurrentTable}))
+				
+				  // Use the provided input form
+				FORM SET INPUT:C55(Table:C252(iUserMode_CurrentTable)->;ar_UserMode_Forms{iUserMode_CurrentTable})
+				
 				CUT NAMED SELECTION:C334(Table:C252(iUserMode_CurrentTable)->;"UserMode_memory")
 				READ WRITE:C146(Table:C252(iUserMode_CurrentTable)->)
 				USE SET:C118("UserSet")

@@ -10,6 +10,8 @@
   // Parameter  
   // $1 = ptr to text array containing form names (based on table numbers)
   // ----------------------------------------------------
+C_POINTER:C301($1)  // must be declared to get this working: (Type($1)=Is pointer) 
+  // if not $1 would be of type "variant"
 
 UserMode_Init 
 

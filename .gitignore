@@ -6,5 +6,9 @@
 Logs
 Project/DerivedData
 Components
+Trash
+data
 *.journal
 
+userPreferences.Lutz.Epperlein
+.idea/*
